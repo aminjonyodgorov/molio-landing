@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Molio — Shaxsiy moliya yordamchingiz</title>
+  <meta name="description" content="Telegram bot orqali xarajat, daromad va qarzlarni AI yordamida boshqaring. Matn, ovoz va rasm orqali tezkor tranzaksiya yozish — O'zbek tilida." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Molio — Shaxsiy moliya yordamchingiz" />
+  <meta property="og:description" content="Telegram bot orqali xarajat, daromad va qarzlarni AI yordamida boshqaring." />
+  <meta property="og:image" content="/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#10b981" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%BC%3C/text%3E%3C/svg%3E" />
+
+  <!-- Tailwind via CDN — no build step needed -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gradient-bg {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(16, 185, 129, 0.08) 0%, transparent 60%),
+        linear-gradient(180deg, #f0fdf4 0%, #ffffff 70%);
+    }
+    .chat-bubble-in {
+      background: #f1f5f9;
+      border-radius: 18px 18px 18px 4px;
+    }
+    .chat-bubble-out {
+      background: #d1fae5;
+      border-radius: 18px 18px 4px 18px;
+    }
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fade-up 0.6s ease-out both; }
+    .fade-up-1 { animation-delay: 0.1s; }
+    .fade-up-2 { animation-delay: 0.2s; }
+    .fade-up-3 { animation-delay: 0.3s; }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 inset-x-0 z-50 bg-white/70 backdrop-blur-xl border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 text-xl font-bold">
+        <span class="text-2xl">💼</span>
+        <span class="gradient-text">Molio</span>
+      </a>
+      <div class="flex items-center gap-2 sm:gap-6">
+        <a href="#features" class="hidden md:inline text-gray-600 hover:text-gray-900 font-medium">Imkoniyatlar</a>
+        <a href="#how" class="hidden md:inline text-gray-600 hover:text-gray-900 font-medium">Qanday ishlaydi</a>
+        <a href="#faq" class="hidden md:inline text-gray-600 hover:text-gray-900 font-medium">Savollar</a>
+        <a href="https://t.me/MolioBot" target="_blank" rel="noopener" class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-full font-semibold transition shadow-sm">
+          Boshlash
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="gradient-bg pt-32 pb-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="fade-up">
+          <div class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 border border-emerald-100 px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
+            <span class="w-2 h-2 bg-emerald-500 rounded-full" style="animation: pulse-dot 2s infinite;"></span>
+            AI yordamida moliyaviy boshqaruv
+          </div>
+
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-6">
+            Pulingizni
+            <br />
+            <span class="gradient-text">aqlli</span> boshqaring
+          </h1>
+
+          <p class="text-xl text-gray-600 max-w-xl mb-8 leading-relaxed">
+            Xarajat, daromad va qarzlarni Telegram'da soddagina kuzating. Matn, ovoz yoki skrinshot — AI hammasini tushunadi va sizdan tasdiq so'raydi.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="https://t.me/MolioBot" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-full text-lg font-bold transition shadow-lg shadow-emerald-200">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+              </svg>
+              Telegram'da boshlash
+            </a>
+            <a href="#features" class="inline-flex items-center justify-center gap-2 text-gray-700 hover:text-gray-900 px-8 py-4 rounded-full text-lg font-semibold border-2 border-gray-200 hover:border-gray-300 transition">
+              Ko'proq bilish
+            </a>
+          </div>
+
+          <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-500">
+            <span class="flex items-center gap-1.5"><span class="text-emerald-500">✓</span> Mutlaqo bepul</span>
+            <span class="flex items-center gap-1.5"><span class="text-emerald-500">✓</span> Ro'yxat shart emas</span>
+            <span class="flex items-center gap-1.5"><span class="text-emerald-500">✓</span> O'zbek tilida</span>
+          </div>
+        </div>
+
+        <!-- Phone chat mockup -->
+        <div class="fade-up fade-up-2 hidden lg:block">
+          <div class="relative mx-auto" style="max-width: 360px;">
+            <div class="absolute -inset-4 bg-gradient-to-br from-emerald-200 to-emerald-100 rounded-[40px] blur-2xl opacity-50"></div>
+            <div class="relative bg-white rounded-[32px] shadow-2xl shadow-emerald-100 border border-gray-100 overflow-hidden">
+              <!-- header -->
+              <div class="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white px-5 py-4 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-xl">💼</div>
+                <div>
+                  <div class="font-semibold">Molio</div>
+                  <div class="text-xs opacity-80">online</div>
+                </div>
+              </div>
+              <!-- messages -->
+              <div class="px-4 py-5 space-y-3 bg-gray-50">
+                <div class="chat-bubble-out ml-auto max-w-[80%] px-4 py-2.5 text-sm">
+                  nonga 10 ming
+                </div>
+                <div class="chat-bubble-in max-w-[85%] px-4 py-3 text-sm">
+                  <div class="font-semibold mb-1">🤖 Tahlil natijasi:</div>
+                  💸 Xarajat<br />
+                  🍽 Oziq-ovqat<br />
+                  💵 10 000 so'm<br />
+                  📝 non<br /><br />
+                  <span class="text-gray-500">To'g'rimi?</span>
+                </div>
+                <div class="flex gap-2 max-w-[85%]">
+                  <button class="bg-emerald-100 text-emerald-700 px-3 py-1.5 rounded-full text-xs font-semibold">✅ Tasdiqlash</button>
+                  <button class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold">✏️ O'zgartirish</button>
+                </div>
+                <div class="chat-bubble-out ml-auto max-w-[80%] px-4 py-2.5 text-sm">
+                  ✅ Tasdiqlash
+                </div>
+                <div class="chat-bubble-in max-w-[85%] px-4 py-3 text-sm">
+                  ✅ Xarajat saqlandi!<br />
+                  🍽 Oziq-ovqat<br />
+                  💸 10 000 so'm
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 ways to input -->
+  <section id="features" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="text-emerald-600 font-bold mb-3 uppercase tracking-widest text-sm">3 xil yo'l</div>
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Sizga qulay bo'lganini tanlang</h2>
+        <p class="text-xl text-gray-600">Yozsangiz ham, gapirsangiz ham, skrinshot tashlasangiz ham — bot hammasini tushunadi.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white border-2 border-gray-100 rounded-3xl p-8 hover:border-emerald-200 hover:shadow-xl transition">
+          <div class="text-5xl mb-5">💬</div>
+          <h3 class="text-2xl font-bold mb-3">Matn bilan</h3>
+          <p class="text-gray-600 mb-5 leading-relaxed">
+            "Nonga 10 ming" deb yozing — AI summa, kategoriya va izohni o'zi aniqlaydi.
+          </p>
+          <div class="bg-gray-50 rounded-xl p-4 text-sm">
+            <div class="text-gray-500 mb-1">Siz:</div>
+            <div class="font-semibold mb-3">"yarim mln kursga to'ladim"</div>
+            <div class="text-gray-500 mb-1">Bot:</div>
+            <div class="font-semibold">💸 500 000 so'm<br />📚 Ta'lim · 📝 kurs</div>
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-gray-100 rounded-3xl p-8 hover:border-emerald-200 hover:shadow-xl transition">
+          <div class="text-5xl mb-5">🎙</div>
+          <h3 class="text-2xl font-bold mb-3">Ovoz bilan</h3>
+          <p class="text-gray-600 mb-5 leading-relaxed">
+            Mashina haydab ketyapsizmi? Ovoz xabarini yuboring — bot eshitib qo'shadi.
+          </p>
+          <div class="bg-gray-50 rounded-xl p-4 text-sm">
+            <div class="text-gray-500 mb-1">🎙 Ovoz:</div>
+            <div class="font-semibold mb-3">"taksiga 15 ming so'm sarfladim"</div>
+            <div class="text-gray-500 mb-1">Bot:</div>
+            <div class="font-semibold">💸 15 000 so'm<br />🚌 Transport · 📝 taksi</div>
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-gray-100 rounded-3xl p-8 hover:border-emerald-200 hover:shadow-xl transition">
+          <div class="text-5xl mb-5">📷</div>
+          <h3 class="text-2xl font-bold mb-3">Rasm orqali</h3>
+          <p class="text-gray-600 mb-5 leading-relaxed">
+            Bank xabarnomasi, Click/Payme skrinshoti yoki chek — bot o'qiydi va kategoriya beradi.
+          </p>
+          <div class="bg-gray-50 rounded-xl p-4 text-sm">
+            <div class="text-gray-500 mb-1">📷 Rasmda:</div>
+            <div class="font-semibold mb-3">Korzinka -150 000 so'm</div>
+            <div class="text-gray-500 mb-1">Bot:</div>
+            <div class="font-semibold">💸 150 000 so'm<br />🍽 Oziq-ovqat · 📝 Korzinka</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- More features grid -->
+  <section class="py-24 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="text-emerald-600 font-bold mb-3 uppercase tracking-widest text-sm">Hamma narsa joyida</div>
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Moliyangizning to'liq tasviri</h2>
+        <p class="text-xl text-gray-600">Yozish — bu boshlanishi. Asosiy qiziq ish keyin keladi.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="text-4xl mb-4">📊</div>
+          <h3 class="font-bold text-lg mb-2">Oylik statistika</h3>
+          <p class="text-gray-600">Qancha sarfladingiz, qancha topdingiz va qayerga ketdi — bir qarashda.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="text-4xl mb-4">🤝</div>
+          <h3 class="font-bold text-lg mb-2">Qarz hisobi</h3>
+          <p class="text-gray-600">Kim qanchaga qarzdor, qaytarib oldingizmi — bot eslab qoladi.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="text-4xl mb-4">🇺🇿</div>
+          <h3 class="font-bold text-lg mb-2">To'y/marosim alohida</h3>
+          <p class="text-gray-600">O'zbek hayotiga moslashtirilgan: to'y, sunnat, ma'raka kategoriyalari.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="text-4xl mb-4">📋</div>
+          <h3 class="font-bold text-lg mb-2">Birga ko'p tranzaksiya</h3>
+          <p class="text-gray-600">5 satrlik bank skrinshotidan bir nechta xarajatni avtomatik ajratadi.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="text-4xl mb-4">💬</div>
+          <h3 class="font-bold text-lg mb-2">Yordam bo'limi</h3>
+          <p class="text-gray-600">Savolingiz bor? Botning ichida yozing — javob darhol keladi.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="text-4xl mb-4">🔒</div>
+          <h3 class="font-bold text-lg mb-2">Maxfiy</h3>
+          <p class="text-gray-600">Ma'lumotlaringiz faqat sizniki. Reklama yo'q, sotilmaydi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="text-emerald-600 font-bold mb-3 uppercase tracking-widest text-sm">3 oson qadam</div>
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">30 sekundda boshlang</h2>
+        <p class="text-xl text-gray-600">Ro'yxatdan o'tish, parol o'ylash yoki ilova yuklab olish kerak emas.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 relative">
+        <div class="relative">
+          <div class="w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl font-extrabold mb-6 shadow-lg shadow-emerald-200">1</div>
+          <h3 class="text-2xl font-bold mb-3">Botni oching</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Telegram'da <a href="https://t.me/MolioBot" target="_blank" rel="noopener" class="text-emerald-600 font-semibold hover:underline">@MolioBot</a> ni qidiring va <code class="bg-gray-100 px-2 py-0.5 rounded">/start</code> ni bosing.
+          </p>
+        </div>
+        <div class="relative">
+          <div class="w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl font-extrabold mb-6 shadow-lg shadow-emerald-200">2</div>
+          <h3 class="text-2xl font-bold mb-3">Xarajatingizni kiriting</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Matn yozing, gapiring, yoki bank skrinshotini yuboring. Bot AI orqali avtomatik aniqlaydi.
+          </p>
+        </div>
+        <div class="relative">
+          <div class="w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl font-extrabold mb-6 shadow-lg shadow-emerald-200">3</div>
+          <h3 class="text-2xl font-bold mb-3">Statistikani ko'ring</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Oylik xarajat, daromad va kategoriya bo'yicha hisobot — bir bosish bilan.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-24 px-6 bg-gray-50">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <div class="text-emerald-600 font-bold mb-3 uppercase tracking-widest text-sm">Savollar</div>
+        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">Tez-tez beriladigan savollar</h2>
+      </div>
+
+      <div class="space-y-4">
+        <details class="bg-white rounded-2xl p-6 group">
+          <summary class="cursor-pointer font-semibold text-lg flex items-center justify-between">
+            Molio chindan bepulmi?
+            <span class="text-emerald-600 transition-transform group-open:rotate-45 text-2xl leading-none">+</span>
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            Ha, butunlay bepul. Yashirin to'lov yo'q, premium versiya yo'q. Reklama ham yo'q.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-2xl p-6 group">
+          <summary class="cursor-pointer font-semibold text-lg flex items-center justify-between">
+            Mening ma'lumotlarim xavfsizmi?
+            <span class="text-emerald-600 transition-transform group-open:rotate-45 text-2xl leading-none">+</span>
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            Ha. Ma'lumotlaringiz faqat sizning Telegram akkauntingizga bog'langan va boshqa hech kim ko'ra olmaydi. Reklama tarmoqlariga sotilmaydi.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-2xl p-6 group">
+          <summary class="cursor-pointer font-semibold text-lg flex items-center justify-between">
+            Ovozli xabarlar o'zbek tilini tushunadimi?
+            <span class="text-emerald-600 transition-transform group-open:rotate-45 text-2xl leading-none">+</span>
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            Ha. OpenAI'ning yangi GPT-4o transkripsiya modeli o'zbek tilini qo'llab-quvvatlaydi. Rus tilida ham gapirishingiz mumkin.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-2xl p-6 group">
+          <summary class="cursor-pointer font-semibold text-lg flex items-center justify-between">
+            Bank skrinshotlarini qanday yuboraman?
+            <span class="text-emerald-600 transition-transform group-open:rotate-45 text-2xl leading-none">+</span>
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            Telegram'da rasmni qo'shing va botga yuboring. Click, Payme, Humo, Uzcard, Anor — har qanday ilova skrinshoti ishlaydi. Agar rasmda bir nechta tranzaksiya bo'lsa, bot har birini alohida tasdiqlashga taklif qiladi.
+          </p>
+        </details>
+
+        <details class="bg-white rounded-2xl p-6 group">
+          <summary class="cursor-pointer font-semibold text-lg flex items-center justify-between">
+            Yordam yoki taklif berishim kerak. Qanday bog'lansam bo'ladi?
+            <span class="text-emerald-600 transition-transform group-open:rotate-45 text-2xl leading-none">+</span>
+          </summary>
+          <p class="mt-4 text-gray-600 leading-relaxed">
+            Bot ichida <strong>💬 Yordam</strong> tugmasini bosing va xabaringizni yozing. Javob anonim, tez va bevosita admindan keladi.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-28 px-6 gradient-bg">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+        Hozir <span class="gradient-text">bepul</span> boshlang
+      </h2>
+      <p class="text-xl text-gray-600 mb-10 max-w-xl mx-auto">
+        Pulingizni boshqarish 30 sekundda boshlanadi. Tushtirib olish, ro'yxatdan o'tish yoki to'lov kerak emas.
+      </p>
+      <a href="https://t.me/MolioBot" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-10 py-5 rounded-full text-xl font-bold transition shadow-xl shadow-emerald-200">
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+        </svg>
+        Telegram'da boshlash
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-gray-100">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6 text-sm">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">💼</span>
+        <span class="font-bold text-base">Molio</span>
+        <span class="text-gray-400">© 2026</span>
+      </div>
+      <div class="flex items-center gap-6 text-gray-600">
+        <a href="https://t.me/MolioBot" target="_blank" rel="noopener" class="hover:text-gray-900 transition">Telegram</a>
+        <a href="#features" class="hover:text-gray-900 transition">Imkoniyatlar</a>
+        <a href="#faq" class="hover:text-gray-900 transition">Savollar</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
